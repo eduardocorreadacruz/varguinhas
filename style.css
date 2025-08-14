@@ -1,0 +1,182 @@
+/* 1. RESET BÁSICO E ESTILOS GERAIS */
+        :root {
+            --color-bg-light: #f4f4f9;
+            --color-text-light: #333;
+            --color-card-light: #ffffff;
+            --color-header-light: #3a506b;
+            --color-accent-light: #4c6686;
+
+            --color-bg-dark: #1e1e1e;
+            --color-text-dark: #e0e0e0;
+            --color-card-dark: #2c2c2c;
+            --color-header-dark: #1b263b;
+            --color-accent-dark: #6e85b7;
+            
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            background-color: var(--color-bg-light);
+            color: var(--color-text-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* 2. MODO ESCURO */
+        body.dark-mode {
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-dark);
+        }
+
+        /* 3. LAYOUT E CONTAINERS */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--color-header-light);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--color-accent-light);
+            position: relative;
+        }
+        
+        body.dark-mode header {
+            background-color: var(--color-header-dark);
+            border-bottom-color: var(--color-accent-dark);
+        }
+
+        main section {
+            background-color: var(--color-card-light);
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode main section {
+            background-color: var(--color-card-dark);
+        }
+
+        /* 4. TIPOGRAFIA E ELEMENTOS DE TEXTO */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--color-header-light);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-accent-light);
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--color-accent-light);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        body.dark-mode h2 {
+            color: var(--color-accent-dark);
+            border-bottom-color: var(--color-accent-dark);
+        }
+        
+        body.dark-mode h3 {
+            color: var(--color-accent-dark);
+        }
+
+        strong {
+            color: var(--color-header-light);
+        }
+        body.dark-mode strong {
+            color: var(--color-accent-dark);
+        }
+
+        /* 5. ESTILOS DA TABELA */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        body.dark-mode th, body.dark-mode td {
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        body.dark-mode th {
+            background-color: #333;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        body.dark-mode table tr:nth-child(even) {
+            background-color: #252525;
+        }
+        
+        /* 6. BOTÃO DE MODO ESCURO */
+        .theme-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .theme-switcher:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* 7. RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            header {
+                padding: 30px 15px;
+            }
+            .container {
+                padding: 10px;
+            }
+            main section {
+                padding: 20px;
+            }
+        }
