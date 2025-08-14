@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Era Vargas no Twitter (1930)</title>
+    <style>
+        /* Importando fonte e ícones do Font Awesome */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+        :root {
+            --primary-color: #1DA1F2;
+            --background-color: #15202B;
+            --text-color: #D9D9D9;
+            --secondary-text-color: #8899A6;
+            --border-color: #38444D;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 250px 600px 350px;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            padding: 20px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .logo {
+            color: var(--primary-color);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 15px;
+        }
+
+        .menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .menu i {
+            margin-right: 15px;
+            font-size: 24px;
+        }
+
+        /* Feed */
+        .feed {
+            border-right: 1px solid var(--border-color);
+        }
+
+        .feed-header {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background-color: var(--background-color);
+            z-index: 10;
+        }
+
+        .tweet-box {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tweet-box textarea {
+            width: 95%;
+            background-color: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 18px;
+            resize: none;
+            outline: none;
+            height: 60px;
+        }
+
+        .tweet-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            float: right;
+            margin-top: 10px;
+        }
+
+        .tweets-container {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tweet {
+            display: flex;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tweet img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .tweet-content {
+            flex-grow: 1;
+        }
+
+        .tweet-header {
+            color: var(--secondary-text-color);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .tweet-header strong {
+            color: var(--text-color);
+            font-size: 16px;
+        }
+
+        .tweet-actions {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .tweet-actions .action {
+            color: var(--secondary-text-color);
+            cursor: pointer;
+            margin-right: 25px;
+            transition: color 0.2s;
+        }
+
+        .tweet-actions .action:hover {
+            color: var(--primary-color);
+        }
+
+        .liked {
+            color: #E0245E;
+        }
+        
+        .replies {
+            border-left: 2px solid var(--border-color);
+            margin-left: 24px;
+            padding-left: 10px;
+            margin-top: 10px;
+        }
+        
+        .reply-tweet {
+            display: flex;
+            padding: 10px 0;
+        }
+
+        .reply-tweet img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .reply-tweet .tweet-content .tweet-header strong {
+            font-size: 14px;
+        }
+
+        .reply-tweet .tweet-content p {
+            font-size: 14px;
+        }
+
+        /* Widgets */
+        .widgets {
+            padding: 20px;
+        }
+
+        .search-box input {
+            width: 90%;
+            padding: 10px;
+            background-color: var(--border-color);
+            border: none;
+            border-radius: 50px;
+            color: var(--text-color);
+            font-size: 16px;
+            outline: none;
+        }
+
+        .widget-box {
+            background-color: var(--border-color);
+            border-radius: 15px;
+            margin-top: 20px;
+            padding: 15px;
+        }
+
+        .widget-box h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .widget-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .widget-box li {
+            margin-bottom: 10px;
+        }
+
+        .widget-box li span {
+            color: var(--secondary-text-color);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fab fa-twitter"></i>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="#"><i class="fas fa-hashtag"></i> Explorar</a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> Notificações</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Mensagens</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> Perfil</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="feed">
+            <header class="feed-header">
+                <h2>Início</h2>
+            </header>
+
+            <div class="tweet-box">
+                <textarea placeholder="O que está acontecendo?"></textarea>
+                <button>Tweetar</button>
+            </div>
+
+            <div class="tweets-container">
+                <div class="tweet">
+                    <img src="./assets/varguinhas.jpeg" alt="Getúlio Vargas">
+                    <div class="tweet-content">
+                        <div class="tweet-header">
+                            <strong>Getúlio Vargas</strong>
+                            <span>@GVargas1930</span>
+                            <span>&middot; 3h</span>
+                        </div>
+                        <p>A união do Brasil está acima de qualquer coronelismo! O povo não aceita mais ser silenciado. O governo precisa ser de todos, por todos, e para todos. A nação tá **on**! #RevolucaoDe30 #FimDaRepublicaVelha</p>
+                        <div class="tweet-actions">
+                            <span class="action **like-btn**"><i class="far fa-heart"></i> 1357</span>
+                        </div>
+
+                        <div class="replies">
+                            <div class="reply-tweet">
+                                <img src="./assets/luisinho.jpeg" alt="Washington Luís">
+                                <div class="tweet-content">
+                                    <div class="tweet-header">
+                                        <strong>Washington Luís</strong>
+                                        <span>@WLuisPresidente</span>
+                                        <span>&middot; 2h</span>
+                                    </div>
+                                    <p>Tentar anular uma eleição democrática por **birra**? Isso sim é golpe. Votaram em Júlio Prestes. **Aceita que dói menos.** #legalidade #ordem</p>
+                                </div>
+                            </div>
+
+                            <div class="reply-tweet">
+                                <img src="./assets/julinho.jpeg" alt="Júlio Prestes">
+                                <div class="tweet-content">
+                                    <div class="tweet-header">
+                                        <strong>Júlio Prestes</strong>
+                                        <span>@JPrestesOficial</span>
+                                        <span>&middot; 2h</span>
+                                    </div>
+                                    <p>Eleições vencidas, mas os mineiros e gaúchos não querem aceitar. A democracia deles é só quando ganham? **Tá de brincadeira.** #BrasilComJuPrestes #NaoVaiTerGolpe</p>
+                                </div>
+                            </div>
+                            
+                            <div class="reply-tweet">
+                                <img src="./assets/joaozinho.jpeg" alt="João Pessoa">
+                                <div class="tweet-content">
+                                    <div class="tweet-header">
+                                        <strong>João Pessoa</strong>
+                                        <span>@JPessoa_PB</span>
+                                        <span>&middot; 1h</span>
+                                    </div>
+                                    <p>O Nordeste tá **fechado** com a Aliança Liberal. Nosso povo não merece mais ser dominado por oligarquias. **Mandou bem, Getúlio! Tamo junto!** #NordesteNaLuta #Aliado</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tweet">
+                    <img src="./assets/varguinhas.jpeg" alt="Getúlio Vargas">
+                    <div class="tweet-content">
+                        <div class="tweet-header">
+                            <strong>Getúlio Vargas</strong>
+                            <span>@GVargas1930</span>
+                            <span>&middot; 8h</span>
+                        </div>
+                        <p>A crise do café mostra que a economia do país, que deveria estar **bombando**, está **flopando**. O Brasil precisa de novas indústrias, de um mercado interno forte, de um futuro que não seja plantando e exportando apenas um produto. #Crise1929 #ReconstruçãoDoBrasil</p>
+                        <div class="tweet-actions">
+                            <span class="action **like-btn**"><i class="far fa-heart"></i> 987</span>
+                        </div>
+                        <div class="replies">
+                            <div class="reply-tweet">
+                                <img src="./assets/luisinho.jpeg" alt="Washington Luís">
+                                <div class="tweet-content">
+                                    <div class="tweet-header">
+                                        <strong>Washington Luís</strong>
+                                        <span>@WLuisPresidente</span>
+                                        <span>&middot; 7h</span>
+                                    </div>
+                                    <p>**Sempre a culpa de quem tá no poder...** O problema é global, Getúlio, não nosso. A gente tá fazendo o que pode, **para de politizar tudo**. #respeitaoGoverno #semmimimi</p>
+                                </div>
+                            </div>
+
+                            <div class="reply-tweet">
+                                <img src="./assets/osvaldinho.jpeg"alt="Osvaldo Aranha">
+                                <div class="tweet-content">
+                                    <div class="tweet-header">
+                                        <strong>Osvaldo Aranha</strong>
+                                        <span>@AranhaOficial</span>
+                                        <span>&middot; 6h</span>
+                                    </div>
+                                    <p>Finalmente alguém que entende! O sistema atual se esgotou. A gente precisa de uma revolução na economia, não só na política. **É a nossa chance**. #VemVargas #economiaforte</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="widgets">
+            <div class="search-box">
+                <input type="text" placeholder="Buscar no Twitter">
+            </div>
+            <div class="widget-box">
+                <h3>O que está acontecendo</h3>
+                <ul>
+                    <li><strong>#RevolucaoDe30</strong><br><span>Em alta</span></li>
+                    <li><strong>#legalidade</strong><br><span>10k Tweets</span></li>
+                    <li><strong>#FimDaRepublicaVelha</strong><br><span>5k Tweets</span></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const likeButtons = document.querySelectorAll('.like-btn');
+
+            likeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const heartIcon = button.querySelector('i');
+                    const likeCountSpan = button.querySelector('span:last-child');
+                    let currentLikes = parseInt(likeCountSpan.textContent, 10);
+
+                    if (heartIcon.classList.contains('far')) {
+                        // Curtiu
+                        heartIcon.classList.remove('far');
+                        heartIcon.classList.add('fas');
+                        button.classList.add('liked');
+                        currentLikes++;
+                    } else {
+                        // Descurtiu
+                        heartIcon.classList.remove('fas');
+                        heartIcon.classList.add('far');
+                        button.classList.remove('liked');
+                        currentLikes--;
+                    }
+
+                    likeCountSpan.textContent = currentLikes;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
